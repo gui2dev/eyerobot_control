@@ -1,0 +1,16 @@
+eyerobot:
+  #publish all joint states--------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  #Position Controllers--------------------
+  gimbal_roll_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: base_link_to_gimbal_roll
+    pid: {p: 1, i: 0.5, d: 0.5}
+  gimbal_pitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: gimbal_roll_to_pitch
+    pid: {p: 1, i: 0.5, d: 0.5}
+
